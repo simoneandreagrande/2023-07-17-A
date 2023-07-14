@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.gosales.FXMLController">
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.gosales.FXMLController">
    <top>
       <Label text="Esame 17/07/2023 - Turno A" BorderPane.alignment="CENTER">
          <font>
@@ -118,7 +118,7 @@
                         <Insets />
                      </GridPane.margin>
                   </ComboBox>
-                  <Button fx:id="btnCerca" mnemonicParsing="false" onAction="#doCreaGrafo" text="Cerca Percorso" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="btnCercaPercorso" mnemonicParsing="false" onAction="#doCercaPercorso" text="Cerca Percorso" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="14.0" />
                      </font>

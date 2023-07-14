@@ -11,8 +11,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 
 public class FXMLController {
-
-    private Model model;
+	
+	Model model;
 
     @FXML
     private ResourceBundle resources;
@@ -21,7 +21,7 @@ public class FXMLController {
     private URL location;
 
     @FXML
-    private Button btnCerca;
+    private Button btnCercaPercorso;
 
     @FXML
     private Button btnCreaGrafo;
@@ -45,13 +45,18 @@ public class FXMLController {
     private TextArea txtResult;
 
     @FXML
+    void doCercaPercorso(ActionEvent event) {
+
+    }
+
+    @FXML
     void doCreaGrafo(ActionEvent event) {
 
     }
 
     @FXML
     void initialize() {
-        assert btnCerca != null : "fx:id=\"btnCerca\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert btnCercaPercorso != null : "fx:id=\"btnCercaPercorso\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnCreaGrafo != null : "fx:id=\"btnCreaGrafo\" was not injected: check your FXML file 'Scene.fxml'.";
         assert cmbAnno != null : "fx:id=\"cmbAnno\" was not injected: check your FXML file 'Scene.fxml'.";
         assert cmbColore != null : "fx:id=\"cmbColore\" was not injected: check your FXML file 'Scene.fxml'.";
@@ -61,7 +66,7 @@ public class FXMLController {
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Scene.fxml'.";
 
     }
-
+    
     public void setModel(Model model) {
     	this.model = model;
     }
