@@ -20,7 +20,7 @@ public class EntryPoint extends Application {
         FXMLController controller = loader.getController();
         controller.setModel(model);
         
-        stage.setTitle("Esame 17/07/2023");
+        stage.setTitle("Esame 17/07/2023 - Turno A");
         stage.setScene(scene);
         stage.show();
     }
