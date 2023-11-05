@@ -1,11 +1,14 @@
 package it.polito.tdp.gosales;
 
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.gosales.model.Arco;
 import it.polito.tdp.gosales.model.Model;
+import it.polito.tdp.gosales.model.Products;
+import it.polito.tdp.gosales.model.Retailers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -53,16 +56,29 @@ public class FXMLController {
 
     @FXML
     void doCreaGrafo(ActionEvent event) {
-
-        String brand = cmbColore.getValue();
-        Integer year = cmbAnno.getValue();
-
-        this.model.buildGraph(brand, year);
-
-        txtResGrafo.setText("Num Nodi: " + this.model.getNumNodi()+"\n");
-        txtResGrafo.appendText("Num Archi: " + this.model.getNumArchi());
-
-        txtArchi.setText("Top 3 archi: \n");
+    	String colore = this.cmbColore.getValue();
+    	if (colore==null) {
+    		this.txtResGrafo.setText("Please select a country.");
+    		return;
+    	}
+    	
+    	Integer anno = this.cmbAnno.getValue();
+    	if (anno == null) {
+    		this.txtResGrafo.setText("Please select a year.");
+    		return;
+    	}
+    	
+    
+    	
+    	//creazione grafp.
+    	this.model.buildGraph(colore, anno);
+    	
+    	List<Products> vertici = this.model.getProductsByColor(colore);
+    	this.txtResGrafo.setText("Grafo creato.\n"+ "Ci sono " + this.model.getNumNodi() + " vertici.\n" + "Ci sono " + this.model.getNumArchi()+ " archi.\n");
+    	
+    	
+    	
+    	txtArchi.setText("Top 3 archi: \n");
         List<Arco> topArchi = this.model.getTopArchi();
 
         for (Arco a : topArchi)
@@ -73,6 +89,9 @@ public class FXMLController {
 
         for (Integer i : repeatedProdsID)
             txtArchi.appendText("Product ID : " + i + "\n");
+    
+    
+    	
 
     }
 
@@ -91,8 +110,8 @@ public class FXMLController {
     
     public void setModel(Model model) {
     	this.model = model;
-        cmbAnno.getItems().setAll(this.model.getAllYears());
-        cmbColore.getItems().setAll(this.model.getAllColors());
+    	this.cmbAnno.getItems().setAll(2015, 2016, 2017, 2018);
+    	this.cmbColore.getItems().setAll(model.getColori());
     }
 
 }

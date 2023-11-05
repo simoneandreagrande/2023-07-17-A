@@ -17,15 +17,29 @@ public class testDAO {
 		List<DailySale> listS = new ArrayList<>();
 		
 		
-		listR = dao.getAllRetailers();
-		System.out.println(listR.size());
+//		listR = dao.getAllRetailers();
+//		System.out.println(listR.size());
+//		
+//		listP = dao.getAllProducts();
+//		System.out.println(listP.size());
+//		
+//		listS = dao.getAllSales();
+//		System.out.println(listS.size());
 		
-		listP = dao.getAllProducts();
-		System.out.println(listP.size());
 		
-		listS = dao.getAllSales();
-		System.out.println(listS.size());
 		
+		Integer product1 = 109110;
+        Integer product2 = 112110;
+        int year = 2015;
+
+        // Esegui il metodo calculateNumberOfDays
+//        int numberOfDays = dao.calculateNumberOfDays(product1, product2, year);
+
+//        System.out.println(numberOfDays);
+        // Verifica il risultato atteso
+        int expectedNumberOfDays = 10; // Assumi che il numero di giorni atteso sia 10
+    
+    
 		
 		
 	}

@@ -1,18 +1,22 @@
 package it.polito.tdp.gosales.model;
 
-import it.polito.tdp.gosales.dao.GOsalesDAO;
-import javafx.scene.shape.Arc;
-import org.jgrapht.Graphs;
-import org.jgrapht.graph.DefaultEdge;
-import org.jgrapht.graph.SimpleWeightedGraph;
-
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.jgrapht.Graph;
+import org.jgrapht.Graphs;
+import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.DefaultWeightedEdge;
+import org.jgrapht.graph.SimpleWeightedGraph;
+
+import it.polito.tdp.gosales.dao.GOsalesDAO;
 
 public class Model {
-
+   
 	private GOsalesDAO dao;
 	private SimpleWeightedGraph<Products, DefaultEdge> graph;
 	private HashMap<Integer,Products> idMap;
@@ -45,7 +49,7 @@ public class Model {
 			Graphs.addEdge(this.graph, this.idMap.get(c.getSource()), this.idMap.get(c.getTarget()), c.getPeso());
 		}
 	}
-
+	
 	public List<Integer> repeatedProducts(){
 		List<Arco> topArchi = getTopArchi();
 
@@ -71,6 +75,8 @@ public class Model {
 		return found;
 	}
 
+  
+
 	public List<Arco> getTopArchi() {
 		return this.allArchi.subList(0,3);
 	}
@@ -86,7 +92,15 @@ public class Model {
 		return this.graph.edgeSet().size();
 	}
 
-	public List<String> getAllColors(){ return this.dao.getAllColors(); }
+	public List<Products> getProductsByColor(String colore) {
+		return this.dao.getProductsByColor(colore);
+	}
 
-
+	public List<String> getColori() {
+        return this.dao.getColori();
+    }
+    
+	
+    
+ 
 }
