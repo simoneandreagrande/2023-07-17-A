@@ -36,8 +36,8 @@ public class Model {
 		List<Products> nodes = new ArrayList<Products>(this.dao.getNodes(brand));
 		List<Arco> edges = new ArrayList<Arco>(this.dao.getEdges(brand,year));
 
-		System.out.println(nodes.size()+"");
-		System.out.println(edges.size()+"");
+//		System.out.println(nodes.size()+"");
+//		System.out.println(edges.size()+"");
 		this.allArchi = new ArrayList<Arco>(edges);
 
 		for (Products p : nodes)
