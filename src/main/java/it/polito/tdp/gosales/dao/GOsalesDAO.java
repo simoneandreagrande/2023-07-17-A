@@ -266,7 +266,7 @@ public class GOsalesDAO {
 				"where " +
 				"  gp1.Product_color = ? " +
 				"  and gp1.Product_color = gp2.Product_color " +
-				"  and year(gds1.Date )= ? " +
+				"  	and year(gds1.Date )= ? " +
 				"  and gds1.Date = gds2.Date " +
 				"  and gds1.Retailer_code = gds2.Retailer_code " +
 				"  and gds1.Product_number = gp1.Product_number " +
@@ -275,7 +275,7 @@ public class GOsalesDAO {
 				"group by " +
 				"  gp1.Product_number , " +
 				"  gp2.Product_number " +
-				"order by n desc ";
+				"order by n desc";
 
 		List<Arco> result = new ArrayList<Arco>();
 
